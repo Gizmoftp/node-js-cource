@@ -5,10 +5,16 @@
         <meta charset="utf-8"/>
     </head>
 <body>
-    <p>
-        Hi there!
-    </p>
+
+    <ol id="messages"></ol>
+    
+    <form id="message-form">
+        <span> Message: </span> 
+        <input type="text" name="message"/>
+        <button>Send</button>
+    </form>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/index.js"></script>
 </body>
 </html>
