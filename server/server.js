@@ -12,15 +12,24 @@ const server = http.createServer(app);
 let io = socketIO(server);
 
 io.on('connection', (socket) => {
-console.log('new user connected');
+    console.log('new user connected');
 
-socket.on('disconnect', () => {
-    console.log('The user is disconnected');
-})
+    socket.emit('newMessage', {
+        from: 'jenn',
+        text: 'new message is here'
+    });
+
+    socket.on('createMessage', (newMessage) => {
+        console.log('createMessage',newMessage);
+    });
+
+    socket.on('disconnect', () => {
+        console.log('The user is disconnected');
+    })
 })
 
 
 
 app.use(express.static(publicPath));
 
-server.listen(port, () => { console.log(`Start listening port ${port}`);});
+server.listen(port, () => { console.log(`Start listening port ${port}`); });
