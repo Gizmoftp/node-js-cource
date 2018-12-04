@@ -7,16 +7,14 @@ const PRODUCTION = process.env.NODE_ENV === 'production';
 console.log(process.env.NODE_ENV);
 
 let entry = PRODUCTION 
-? [  './index.js']
+? [  './server/server.js']
 : [
-    './index.js',
-    'webpack/hot/dev-server',
-    'webpack-dev-server/client?http://localhost:8080'
+    './server/server.js'
 ];
 
 let plugins = PRODUCTION 
 ? []
-: [   new webpack.HotModuleReplacementPlugin()];
+: [];
 
 module.exports = {
     mode : process.env.NODE_ENV,
